@@ -1,0 +1,57 @@
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { ChevronRight } from "lucide-react";
+
+export default function DeltaVHome() {
+  return (
+    <div className="bg-black text-white min-h-screen flex flex-col items-center">
+      <header className="w-full flex flex-col items-center p-6 border-b border-gray-700">
+        <motion.img 
+          src="/path-to-your-logo.jpg" 
+          alt="Delta-V Logo" 
+          className="w-32 h-32 mb-4"
+          animate={{ rotate: [0, 5, -5, 0] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <h1 className="text-3xl font-bold text-blue-500">ΔV | Delta-V</h1>
+        <nav>
+          <ul className="flex gap-6">
+            <li className="hover:text-blue-400 cursor-pointer">Home</li>
+            <li className="hover:text-blue-400 cursor-pointer">About</li>
+            <li className="hover:text-blue-400 cursor-pointer">Projects</li>
+            <li className="hover:text-blue-400 cursor-pointer">Contact</li>
+          </ul>
+        </nav>
+      </header>
+      
+      <main className="flex-1 flex flex-col justify-center items-center text-center px-6">
+        <motion.h2
+          className="text-5xl font-extrabold mb-4"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          Pushing Boundaries, Changing Velocity
+        </motion.h2>
+        <p className="text-lg text-gray-400 max-w-2xl">
+          Innovating model rocket and propulsion systems to push the limits of space technology.
+        </p>
+        <motion.div
+          className="mt-6"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <Button className="bg-blue-600 hover:bg-blue-400 text-lg flex items-center gap-2 px-6 py-3">
+            Explore Projects <ChevronRight size={20} />
+          </Button>
+        </motion.div>
+      </main>
+      
+      <footer className="w-full text-center py-4 border-t border-gray-700 text-gray-500">
+        © {new Date().getFullYear()} Delta-V. All rights reserved.
+      </footer>
+    </div>
+  );
+}
